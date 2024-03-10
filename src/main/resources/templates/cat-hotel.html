@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Гостиница для котиков</title>
+</head>
+<body>
+<h1>Гостиница для котиков</h1>
+<h2>Список постояльцев</h2>
+
+<table>
+    <tr>
+        <th>Имя котика | </th>
+        <th>Возраст котика</th>
+    </tr>
+    <tr th:each="cat: ${cats}" >
+        <td th:text="${cat.name}"></td>
+        <td th:text="${cat.age}"></td>
+    </tr>
+</table>
+
+<h2>Добавить котика в список:</h2>
+<form action="/cats" method="post">
+    Имя: <input type="text" name="name"><br />
+    Возраст: <input type="number" name="age"><br />
+    <button type="submit">Добавить котика</button>
+</form>
+</body>
+</html>
